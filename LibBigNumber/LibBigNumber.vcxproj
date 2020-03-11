@@ -23,6 +23,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="bn_add_n.c" />
+    <ClCompile Include="bn_add_n1.c" />
+    <ClCompile Include="bn_add_nn.c" />
+    <ClCompile Include="bn_muladd_n1.c" />
+    <ClCompile Include="bn_mul_n.c" />
+    <ClCompile Include="bn_mul_n1.c" />
+    <ClCompile Include="bn_mul_n11.c" />
+    <ClCompile Include="_bn_mul_n11.c" />
     <ClCompile Include="bn_sub_n.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
