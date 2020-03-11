@@ -6,6 +6,7 @@ Blog'umda yazdığım büyük sayılar yazı dizisi için oluşturduğum depo.
 
  - [Büyük Sayı Algoritmaları - Giriş](https://ysar.net/algoritma/buyuk-sayi-islemleri-giris.html) (İlgili Etiket: [buyuk-sayi-islemleri-giris](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-giris))
  - [Büyük Sayı Algoritmaları - Toplama / Çıkarma](https://ysar.net/algoritma/buyuk-sayi-islemleri-toplama-cikarma.html) (İlgili Etiket: [buyuk-sayi-islemleri-giris](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-giris)) (İlgili Etiket [buyuk-sayi-islemleri-toplama-cikarma](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-toplama-cikarma))
+ - [Büyük Sayı Algoritmaları - Çarpma](https://ysar.net/algoritma/buyuk-sayi-islemleri-carpma.html) (İlgili Etiket: [buyuk-sayi-islemleri-carpma](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-carpma))
  
 Derleme
 -------

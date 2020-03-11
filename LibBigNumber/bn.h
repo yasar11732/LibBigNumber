@@ -64,4 +64,8 @@ bn_digit_t bn_muladd_n1(bn_digit_t *result, bn_digit_t *op1, bn_digit_t op2, bn_
 // result = op1 - op2, where op1 and op2 is "size" digits long
 bn_digit_t bn_sub_n(bn_digit_t *r, bn_digit_t *op1, bn_digit_t *op2, bn_size_t size);
 
+// q = n / d, r = n % d, where n is nlen digits long, d is dlen digits long, d[dlen-1] /= 0
+// r can be null
+void bn_div_n(bn_digit_t *q, bn_digit_t *r, bn_digit_t *n, bn_size_t nlen, bn_digit_t *d, bn_size_t dlen);
+
 #endif
