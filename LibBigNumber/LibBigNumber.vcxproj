@@ -21,6 +21,10 @@
   <ItemGroup>
     <ClInclude Include="bn.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bn_add_n.c" />
+    <ClCompile Include="bn_sub_n.c" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{A555E7A8-0934-4826-B066-E3A725B19BE4}</ProjectGuid>
