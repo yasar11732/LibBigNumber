@@ -19,16 +19,19 @@
 
 #include "bn.h"
 
-void bn_mul_n(bn_digit_t *result, bn_digit_t *op1, bn_size_t m, bn_digit_t *op2, bn_size_t n)
+void bnz_set_int(bnz_ptr bn, int i)
 {
-	bn_size_t i;
-	result[m] = bn_mul_n1(result, op1, op2[0], m);
-
-	for (i = 1; i < n; i++)
+	if (!i)
 	{
-		result++;
-		op2++;
-
-		result[m] = bn_muladd_n1(result, op1, op2[0], m);
+		bn->length = 0;
+		return;
 	}
+
+	bn_size_t num_digits = ((sizeof(int) - 1) / sizeof(bn_digit_t)) + 1;
+	bn_digit_t *rp = BN_GROW(bn, num_digits);
+	*((int *)rp) = BN_ABS(i);
+	if (*((int *)rp) == i) // sayi positif
+		bn->length = bn_trim(rp, num_digits);
+	else // sayi negatif
+		bn->length = -bn_trim(rp, num_digits);
 }

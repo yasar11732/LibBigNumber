@@ -26,9 +26,6 @@
     <ClCompile Include="bn_sub_n.c">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
-    <ClCompile Include="_bn_mul_n11.c">
-      <Filter>Kaynak Dosyalar</Filter>
-    </ClCompile>
     <ClCompile Include="bn_mul_n11.c">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
@@ -53,8 +50,29 @@
     <ClCompile Include="bn_div_n.c">
       <Filter>Kaynak Dosyalar</Filter>
     </ClCompile>
+    <ClCompile Include="bn_alloc.c">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="bn_cmp_n.c">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="bn_cmp_nn.c">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="bnz_init.c">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="bn_trim.c">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
+    <ClCompile Include="bnz_set_int.c">
+      <Filter>Kaynak Dosyalar</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\LICENSE.txt" />
   </ItemGroup>
 </Project>

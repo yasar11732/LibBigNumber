@@ -19,16 +19,10 @@
 
 #include "bn.h"
 
-void bn_mul_n(bn_digit_t *result, bn_digit_t *op1, bn_size_t m, bn_digit_t *op2, bn_size_t n)
+int bn_cmp_nn(const bn_digit_t *op1, bn_size_t op1size, const bn_digit_t *op2, bn_size_t op2size)
 {
-	bn_size_t i;
-	result[m] = bn_mul_n1(result, op1, op2[0], m);
+	if (op1size != op2size)
+		return (op1size > op2size) - (op1size < op2size);
 
-	for (i = 1; i < n; i++)
-	{
-		result++;
-		op2++;
-
-		result[m] = bn_muladd_n1(result, op1, op2[0], m);
-	}
+	return bn_cmp_n(op1, op2, op1size);
 }

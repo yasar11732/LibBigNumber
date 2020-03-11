@@ -1,3 +1,22 @@
+/*
+
+	Copyright (C) 2020  Yaþar Arabacý
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+*/
+
 #ifndef __BN_H_
 #define __BN_H_
 #include <limits.h> // CHAR_BIT
@@ -17,6 +36,10 @@ typedef uint64_t bn_long_digit_t;
 #define BN_ABS(a) ((a) >= 0 ? (a) : -(a))
 #define BN_CMP(a,b) (((a) > (b)) - ((b) > (a)))
 
+#define BN_GROW(bn, n) ((n) > (bn)->alloc ? \
+    bnz_resize((bn), (n)) \
+    : (bn)->digits)
+
 #if defined(__GNUC__)
 #define nlz(x) __builtin_clz(x)
 #elif defined(_MSC_VER)
@@ -30,6 +53,40 @@ int nlz(unsigned int value)
 	return 32 - i;
 }
 #endif
+
+typedef struct {
+	bn_size_t alloc;
+	bn_size_t length;
+	bn_digit_t *digits;
+} bnz_t;
+
+typedef bnz_t *bnz_ptr;
+typedef const bnz_t *bn_constptr;
+
+// initialize bnz_ptr before first use
+void bnz_init(bnz_ptr bnz);
+
+// reallocate p_old to size*sizeof(bn_digit_t). Call exit() if realloc fails.
+bn_digit_t *bn_xrealloc(bn_digit_t *p_old, bn_size_t size);
+
+// allocate and return pointer to size*sizeof(bn_digit_t) byte of memory. Call exit() if malloc fails.
+bn_digit_t *bn_xmalloc(bn_size_t size);
+
+// allocate space for `size` digits.
+bn_digit_t *bnz_resize(bnz_ptr bn, bn_size_t size);
+
+// Calculate length of digits, after leading zeros
+bn_size_t bn_trim(bn_digit_t *digits, bn_size_t current_size);
+
+// bn = i
+void bnz_set_int(bnz_ptr bn, int i);
+
+// return `(op1 > op2) - (op1 < op2)` where length of both arrays are `opsize`
+int bn_cmp_n(const bn_digit_t *op1, const bn_digit_t *op2, bn_size_t opsize);
+
+// return `(op1 > op2) - (op1 < op2)` where length of arrays might differ
+int bn_cmp_nn(const bn_digit_t *op1, bn_size_t op1size, const bn_digit_t *op2, bn_size_t op2size);
+
 
 // Initialize random number generation engine with zero terminated string. strlen(key) > 4.
 void init_rng(char *key);

@@ -14,21 +14,35 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+	
 */
-
 #include "bn.h"
+#include <stdlib.h> // malloc/realloc
 
-void bn_mul_n(bn_digit_t *result, bn_digit_t *op1, bn_size_t m, bn_digit_t *op2, bn_size_t n)
+bn_digit_t *bn_xrealloc(bn_digit_t *p_old, bn_size_t size)
 {
-	bn_size_t i;
-	result[m] = bn_mul_n1(result, op1, op2[0], m);
+	bn_digit_t *p_new = realloc(p_old, size * sizeof(bn_digit_t));
+	if (!p_new)
+		exit(-1);
+	return p_new;
+}
 
-	for (i = 1; i < n; i++)
-	{
-		result++;
-		op2++;
+bn_digit_t *bn_xmalloc(bn_size_t size)
+{
+	bn_digit_t *p = malloc(size * sizeof(bn_digit_t));
+	if (!p)
+		exit(-1);
+	return p;
+}
 
-		result[m] = bn_muladd_n1(result, op1, op2[0], m);
-	}
+bn_digit_t *bnz_resize(bnz_ptr bn, bn_size_t size)
+{
+	if (bn->alloc)
+		bn->digits = bn_xrealloc(bn->digits, size);
+	else
+		bn->digits = bn_xmalloc(size);
+
+	bn->alloc = size;
+
+	return bn->digits;
 }
