@@ -17,6 +17,29 @@ typedef uint64_t bn_long_digit_t;
 #define BN_ABS(a) ((a) >= 0 ? (a) : -(a))
 #define BN_CMP(a,b) (((a) > (b)) - ((b) > (a)))
 
+#if defined(__GNUC__)
+#define nlz(x) __builtin_clz(x)
+#elif defined(_MSC_VER)
+#define nlz(x) __lzcnt(x)
+#else
+int nlz(unsigned int value)
+{
+	int i;
+	for (i = 0; value; i++)
+		value >>= 1;
+	return 32 - i;
+}
+#endif
+
+// Initialize random number generation engine with zero terminated string. strlen(key) > 4.
+void init_rng(char *key);
+
+// returns a random char
+uint8_t randomc();
+
+// fill array of digits with random numbers
+void fill_random(bn_digit_t *arr, bn_size_t len);
+
 // result = op1 + op2, where both op1 and op2 is n digits long
 bn_digit_t bn_add_n(bn_digit_t *result, const bn_digit_t *op1, const bn_digit_t *op2, bn_size_t n);
 
