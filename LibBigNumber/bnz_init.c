@@ -19,6 +19,8 @@
 
 #include "bn.h"
 
+void *memset(void *str, int c, size_t n);
+
 void bnz_init(bnz_ptr bnz)
 {
 	memset(bnz, 0, sizeof(bnz_t));

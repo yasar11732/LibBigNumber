@@ -19,13 +19,6 @@
 
 #include "bn.h"
 
-#if defined(_MSC_VER)
-#include <malloc.h>
-#define alloca _alloca
-#else
-#include <alloc.h>
-#endif
-
 void bn_div_n(bn_digit_t *q, bn_digit_t *r, bn_digit_t *n, bn_size_t nlen, bn_digit_t *d, bn_size_t dlen)
 {
 	// Geçiçi kullanýlacak hafýza alanlarý.

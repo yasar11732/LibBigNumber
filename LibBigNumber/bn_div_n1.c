@@ -14,34 +14,22 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
-	
+
 */
+
 #include "bn.h"
 
-bn_digit_t *bn_xrealloc(bn_digit_t *p_old, bn_size_t size)
+bn_digit_t bn_div_n1(bn_digit_t *q, bn_digit_t *op1, bn_size_t len, bn_digit_t op2)
 {
-	bn_digit_t *p_new = realloc(p_old, size * sizeof(bn_digit_t));
-	if (!p_new)
-		exit(-1);
-	return p_new;
-}
+	bn_digit_t carry = 0;
+	bn_size_t i;
 
-bn_digit_t *bn_xmalloc(bn_size_t size)
-{
-	bn_digit_t *p = malloc(size * sizeof(bn_digit_t));
-	if (!p)
-		exit(-1);
-	return p;
-}
+	for (i = len - 1; i >= 0; i--)
+	{
+		bn_long_digit_t u = ((bn_long_digit_t)carry << BN_DIGIT_BITS) + (op1[i]);
+		q[i] = (bn_digit_t)(u / op2);
+		carry = u % op2;
+	}
 
-bn_digit_t *bnz_resize(bnz_ptr bn, bn_size_t size)
-{
-	if (bn->alloc)
-		bn->digits = bn_xrealloc(bn->digits, size);
-	else
-		bn->digits = bn_xmalloc(size);
-
-	bn->alloc = size;
-
-	return bn->digits;
+	return carry;
 }

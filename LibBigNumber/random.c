@@ -19,6 +19,8 @@
 
 #include "bn.h"
 
+size_t strlen(const char *str);
+
 struct rngstate
 {
 	uint8_t i, j, s[256];

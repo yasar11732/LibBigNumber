@@ -21,6 +21,15 @@
 #define __BN_H_
 #include <limits.h> // CHAR_BIT
 #include <stdint.h>
+#include <stdlib.h> // malloc/realloc
+
+// alloca
+#if defined(_MSC_VER)
+#include <malloc.h>
+#define alloca _alloca
+#else
+#include <alloc.h>
+#endif
 
 typedef int32_t bn_size_t;
 typedef uint32_t bn_digit_t;
@@ -124,5 +133,16 @@ bn_digit_t bn_sub_n(bn_digit_t *r, bn_digit_t *op1, bn_digit_t *op2, bn_size_t s
 // q = n / d, r = n % d, where n is nlen digits long, d is dlen digits long, d[dlen-1] /= 0
 // r can be null
 void bn_div_n(bn_digit_t *q, bn_digit_t *r, bn_digit_t *n, bn_size_t nlen, bn_digit_t *d, bn_size_t dlen);
+
+// q = op1 / op2, returns op1 % op2. op1 is n digits long, op2 is single digit
+bn_digit_t bn_div_n1(bn_digit_t *q, bn_digit_t *op1, bn_size_t len, bn_digit_t op2);
+
+// Convert a bnz to decimal string
+char *bnz_tods(bn_constptr bnz);
+
+// bnz = int(str)
+int bnz_set_ds(bnz_ptr bnz, const char *str);
+
+extern char *BN_ZERO;
 
 #endif
