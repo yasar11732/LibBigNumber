@@ -22,19 +22,18 @@
 void * memmove(void *to, const void *from, size_t numBytes);
 
 char *BN_ZERO = "0";
-bn_size_t totalcalls = 0;
-bn_size_t num_moves = 0;
 
 char *bnz_tods(bn_constptr bnz)
 {
-	totalcalls++;
 	char *ds;
 	bn_size_t length = BN_ABS(bnz->length);
-	bn_size_t nbits = length * BN_DIGIT_BITS - nlz(bnz->digits[bnz->length - 1]);
+	bn_size_t nbits = length * BN_DIGIT_BITS - nlz(bnz->digits[length - 1]);
 
 	// may be off by one
 	// gercek degerinden 1 fazla olabilir
 	bn_size_t ndecimals = ((bn_long_digit_t)nbits * 1292913986 >> 32) + 1;
+	if (bnz->length < 0)
+		ndecimals++;
 
 	if (!length)
 	{
@@ -60,9 +59,11 @@ char *bnz_tods(bn_constptr bnz)
 		length = bn_trim(tmp, length);
 	}
 
+	if (bnz->length < 0)
+		*tds-- = '-';
+
 	if (tds == ds)
 	{
-		num_moves++;
 		memmove(ds, ++tds, ndecimals);
 	}
 
