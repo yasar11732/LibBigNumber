@@ -21,11 +21,9 @@
 
 void * memmove(void *to, const void *from, size_t numBytes);
 
-char *BN_ZERO = "0";
-
-char *bnz_tods(bn_constptr bnz)
+char *bnz_tods(bnz_constptr bnz, char *ds)
 {
-	char *ds;
+	// char *ds;
 	bn_size_t length = BN_ABS(bnz->length);
 	bn_size_t nbits = length * BN_DIGIT_BITS - nlz(bnz->digits[length - 1]);
 
@@ -37,10 +35,18 @@ char *bnz_tods(bn_constptr bnz)
 
 	if (!length)
 	{
-		return BN_ZERO;
+		if (!ds)
+		{
+			ds = malloc(2);
+		}
+
+		ds[0] = '0';
+		ds[1] = 0;
+		return ds;
 	}
 
-	ds = malloc(ndecimals + 1);
+	if(!ds)
+		ds = malloc(ndecimals + 1);
 
 	bn_digit_t *tmp = alloca(length * sizeof(bn_digit_t));
 	bn_size_t i;

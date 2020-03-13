@@ -19,11 +19,28 @@
 
 #include "bn.h"
 
-bn_digit_t bn_add_nn(bn_digit_t *result, const bn_digit_t *op1, bn_size_t n1, const bn_digit_t *op2, bn_size_t n2)
+bn_size_t bnz_sub_abs(bnz_ptr result, bnz_constptr op1, bnz_constptr op2)
 {
-	bn_digit_t carry = bn_add_n(result, op1, op2, n2);
-	if (n1 > n2)
-		carry = bn_add_n1(result + n2, op1 + n2, carry, n1 - n2);
+	int s1 = BN_ABS(op1->length);
+	int s2 = BN_ABS(op2->length);
+	bn_digit_t *rp;
 
-	return carry;
+	int cmp = bn_cmp_nn(op1->digits, s1, op2->digits, s2);
+
+	if (cmp > 0)
+	{
+		rp = BN_GROW(result, s1);
+		bn_sub_nn(rp, op1->digits, s1, op2->digits, s2);
+		return bn_trim(rp, s1);
+	}
+	else if (cmp < 0)
+	{
+		rp = BN_GROW(result, s2);
+		bn_sub_nn(rp, op2->digits, s2, op1->digits, s1);
+		return -bn_trim(rp, s2);
+	}
+	else
+	{
+		return 0;
+	}
 }

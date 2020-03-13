@@ -70,7 +70,7 @@ typedef struct {
 } bnz_t;
 
 typedef bnz_t *bnz_ptr;
-typedef const bnz_t *bn_constptr;
+typedef const bnz_t *bnz_constptr;
 
 // initialize bnz_ptr before first use
 void bnz_init(bnz_ptr bnz);
@@ -115,6 +115,12 @@ bn_digit_t bn_add_n1(bn_digit_t *result, const bn_digit_t *op1, bn_digit_t op2, 
 // result = op1 + op2, where op1 is n1 digits long, op2 is n2 digits long
 bn_digit_t bn_add_nn(bn_digit_t *result, const bn_digit_t *op1, bn_size_t n1, const bn_digit_t *op2, bn_size_t n2);
 
+// result = abs(op1) + abs(o2)
+bn_size_t bnz_add_abs(bnz_ptr result, bnz_constptr op1, bnz_constptr op2);
+
+// result = op1 + op2
+void bnz_add(bnz_ptr result, bnz_constptr op1, bnz_constptr op2);
+
 // result = op1 * op2, where op1 is m digits long, op2 is n digits long
 void bn_mul_n(bn_digit_t *result, bn_digit_t *op1, bn_size_t m, bn_digit_t *op2, bn_size_t n);
 
@@ -128,7 +134,16 @@ void bn_mul_n11(bn_digit_t *rl, bn_digit_t op1, bn_digit_t op2);
 bn_digit_t bn_muladd_n1(bn_digit_t *result, bn_digit_t *op1, bn_digit_t op2, bn_size_t n);
 
 // result = op1 - op2, where op1 and op2 is "size" digits long
-bn_digit_t bn_sub_n(bn_digit_t *r, bn_digit_t *op1, bn_digit_t *op2, bn_size_t size);
+bn_digit_t bn_sub_n(bn_digit_t *r, const bn_digit_t *op1, const bn_digit_t *op2, bn_size_t size);
+
+// result = op1 - op2, where op1 is n1 digits long, op2 is n2 digits long
+bn_digit_t bn_sub_nn(bn_digit_t *result, const bn_digit_t *op1, bn_size_t n1, const bn_digit_t *op2, bn_size_t n2);
+
+// result = op1 - op2 where op1 is n digits long, op2 is single digit
+bn_digit_t bn_sub_n1(bn_digit_t *result, const bn_digit_t *op1, bn_digit_t op2, bn_size_t n);
+
+// result = abs(op1) - abs(op2)
+bn_size_t bnz_sub_abs(bnz_ptr result, bnz_constptr op1, bnz_constptr op2);
 
 // q = n / d, r = n % d, where n is nlen digits long, d is dlen digits long, d[dlen-1] /= 0
 // r can be null
@@ -138,11 +153,9 @@ void bn_div_n(bn_digit_t *q, bn_digit_t *r, bn_digit_t *n, bn_size_t nlen, bn_di
 bn_digit_t bn_div_n1(bn_digit_t *q, bn_digit_t *op1, bn_size_t len, bn_digit_t op2);
 
 // Convert a bnz to decimal string
-char *bnz_tods(bn_constptr bnz);
+char *bnz_tods(bnz_constptr bnz, char *ds);
 
 // bnz = int(str)
 int bnz_set_ds(bnz_ptr bnz, const char *str);
-
-extern char *BN_ZERO;
 
 #endif

@@ -22,9 +22,13 @@
     <ClInclude Include="bn.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="bnz_add.c" />
+    <ClCompile Include="bnz_add_abs.c" />
     <ClCompile Include="bnz_init.c" />
     <ClCompile Include="bnz_set_ds.c" />
     <ClCompile Include="bnz_set_int.c" />
+    <ClCompile Include="bnz_sub.c" />
+    <ClCompile Include="bnz_sub_abs.c" />
     <ClCompile Include="bnz_tods.c" />
     <ClCompile Include="bn_add_n.c" />
     <ClCompile Include="bn_add_n1.c" />
@@ -38,6 +42,8 @@
     <ClCompile Include="bn_mul_n.c" />
     <ClCompile Include="bn_mul_n1.c" />
     <ClCompile Include="bn_mul_n11.c" />
+    <ClCompile Include="bn_sub_n1.c" />
+    <ClCompile Include="bn_sub_nn.c" />
     <ClCompile Include="bn_trim.c" />
     <ClCompile Include="random.c" />
     <ClCompile Include="bn_sub_n.c" />
