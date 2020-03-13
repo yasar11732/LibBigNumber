@@ -9,6 +9,7 @@ Blog'umda yazdığım büyük sayılar yazı dizisi için oluşturduğum depo.
  - [Büyük Sayı Algoritmaları - Çarpma](https://ysar.net/algoritma/buyuk-sayi-islemleri-carpma.html) (İlgili Etiket: [buyuk-sayi-islemleri-carpma](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-carpma))
  - [Büyük Sayı Algoritmaları - Bölme](https://ysar.net/algoritma/buyuk-sayi-islemleri-bolme.html) (İlgili Etiket: [buyuk-sayi-islemleri-bolme](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-bolme))
  - [Büyük Sayı Algoritmaları - Tamsayılar](https://ysar.net/algoritma/buyuk-sayi-islemleri-tamsayilar.html) (İlgili Etiket: [buyuk-sayi-islemleri-bolme](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-tamsayilar))
+
 Derleme
 -------
 
