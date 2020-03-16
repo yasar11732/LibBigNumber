@@ -24,7 +24,9 @@
   <ItemGroup>
     <ClCompile Include="bnz_add.c" />
     <ClCompile Include="bnz_add_abs.c" />
+    <ClCompile Include="bnz_div.c" />
     <ClCompile Include="bnz_init.c" />
+    <ClCompile Include="bnz_mul.c" />
     <ClCompile Include="bnz_set_ds.c" />
     <ClCompile Include="bnz_set_int.c" />
     <ClCompile Include="bnz_sub.c" />

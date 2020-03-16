@@ -4,12 +4,12 @@ LibBigNumber
 Blog'umda yazdığım büyük sayılar yazı dizisi için oluşturduğum depo.
 Şu ana kadar ki yazılar;
 
- - [Büyük Sayı Algoritmaları - Giriş](https://ysar.net/algoritma/buyuk-sayi-islemleri-giris.html) (İlgili Etiket: [buyuk-sayi-islemleri-giris](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-giris))
- - [Büyük Sayı Algoritmaları - Toplama / Çıkarma](https://ysar.net/algoritma/buyuk-sayi-islemleri-toplama-cikarma.html) (İlgili Etiket: [buyuk-sayi-islemleri-giris](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-giris)) (İlgili Etiket [buyuk-sayi-islemleri-toplama-cikarma](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-toplama-cikarma))
- - [Büyük Sayı Algoritmaları - Çarpma](https://ysar.net/algoritma/buyuk-sayi-islemleri-carpma.html) (İlgili Etiket: [buyuk-sayi-islemleri-carpma](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-carpma))
- - [Büyük Sayı Algoritmaları - Bölme](https://ysar.net/algoritma/buyuk-sayi-islemleri-bolme.html) (İlgili Etiket: [buyuk-sayi-islemleri-bolme](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-bolme))
- - [Büyük Sayı Algoritmaları - Tamsayılar](https://ysar.net/algoritma/buyuk-sayi-islemleri-tamsayilar.html) (İlgili Etiket: [buyuk-sayi-islemleri-bolme](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-tamsayilar))
-
+ - [Giriş](https://ysar.net/algoritma/buyuk-sayi-islemleri-giris.html) (İlgili Etiket: [buyuk-sayi-islemleri-giris](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-giris))
+ - [Toplama / Çıkarma](https://ysar.net/algoritma/buyuk-sayi-islemleri-toplama-cikarma.html) (İlgili Etiket: [buyuk-sayi-islemleri-giris](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-giris)) (İlgili Etiket [buyuk-sayi-islemleri-toplama-cikarma](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-toplama-cikarma))
+ - [Çarpma](https://ysar.net/algoritma/buyuk-sayi-islemleri-carpma.html) (İlgili Etiket: [buyuk-sayi-islemleri-carpma](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-carpma))
+ - [Bölme](https://ysar.net/algoritma/buyuk-sayi-islemleri-bolme.html) (İlgili Etiket: [buyuk-sayi-islemleri-bolme](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-bolme))
+ - [Tamsayılar](https://ysar.net/algoritma/buyuk-sayi-islemleri-tamsayilar.html) (İlgili Etiket: [buyuk-sayi-islemleri-bolme](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-tamsayilar))
+ - [Tamsayı/Metin Dönüşümleri](https://ysar.net/algoritma/buyuk-sayi-islemleri-metin.html) (İlgili Etiket: [buyuk-sayi-islemleri-metin](https://github.com/yasar11732/LibBigNumber/tree/buyuk-sayi-islemleri-metin))
 Derleme
 -------
 
